@@ -28,8 +28,8 @@ public class EntityPig extends EntityAnimal {
         this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftPig(server, (EntityPig) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftPig(server, (EntityPig) this);
     }
 
     public boolean bj() {

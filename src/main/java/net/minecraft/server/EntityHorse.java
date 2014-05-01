@@ -61,8 +61,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
         this.loadChest();
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftHorse(server, (EntityHorse) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftHorse(server, (EntityHorse) this);
     }
 
     protected void c() {

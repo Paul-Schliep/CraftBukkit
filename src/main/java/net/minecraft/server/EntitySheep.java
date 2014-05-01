@@ -35,8 +35,8 @@ public class EntitySheep extends EntityAnimal {
         this.bq.resultInventory = new InventoryCraftResult(); // CraftBukkit - add result slot for event
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftSheep(server, (EntitySheep) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftSheep(server, (EntitySheep) this);
     }
 
     protected boolean bj() {

@@ -61,8 +61,8 @@ public class EntityMushroomCow extends EntityCow {
         }
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftMushroomCow(server, (EntityMushroomCow) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftMushroomCow(server, (EntityMushroomCow) this);
     }
 
     public EntityMushroomCow c(EntityAgeable entityageable) {

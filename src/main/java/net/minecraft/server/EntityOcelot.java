@@ -26,8 +26,8 @@ public class EntityOcelot extends EntityTameableAnimal {
         this.targetSelector.a(1, new PathfinderGoalRandomTargetNonTamed(this, EntityChicken.class, 750, false));
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftOcelot(server, (EntityOcelot) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftOcelot(server, (EntityOcelot) this);
     }
 
     protected void c() {

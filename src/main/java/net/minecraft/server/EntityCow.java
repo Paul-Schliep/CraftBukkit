@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 // CraftBukkit start
 import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftChicken;
 import org.bukkit.craftbukkit.entity.CraftCow;
 import org.bukkit.craftbukkit.entity.CraftEntity;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
@@ -25,8 +26,8 @@ public class EntityCow extends EntityAnimal {
         this.goalSelector.a(7, new PathfinderGoalRandomLookaround(this));
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftCow(server, (EntityCow) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftCow(server, (EntityCow) this);
     }
 
     public boolean bj() {

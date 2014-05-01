@@ -42,7 +42,7 @@ public abstract class CraftEntity implements org.bukkit.entity.Entity {
                 if (entity instanceof EntityAnimal) {
                     boolean isAnimal = Entity.isEntityAnimal(entity);
                     if (isAnimal) {
-                        return Entity.getEntity(entity, server);
+                        return entity.getEntity(server);
                     } else {
                         return CraftAnimals.getEntity(entity, server);
                     }

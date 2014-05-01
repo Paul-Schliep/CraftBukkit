@@ -29,8 +29,8 @@ public class EntityChicken extends EntityAnimal {
         this.goalSelector.a(7, new PathfinderGoalRandomLookaround(this));
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftChicken(server, (EntityChicken) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftChicken(server, (EntityChicken) this);
     }
 
     public boolean bj() {

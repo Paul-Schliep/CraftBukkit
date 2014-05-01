@@ -34,8 +34,8 @@ public class EntityWolf extends EntityTameableAnimal {
         this.setTamed(false);
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        return new CraftWolf(server, (EntityWolf) entity);
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftWolf(server, (EntityWolf) this);
     }
 
     protected void aC() {

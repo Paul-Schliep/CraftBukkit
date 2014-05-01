@@ -117,24 +117,8 @@ public abstract class Entity {
         return this.id;
     }
     
-    public static CraftEntity getEntity(Entity entity, CraftServer server) {
-        if (entity instanceof EntityChicken) {
-            return EntityChicken.getEntity(entity, server);
-        } else if (entity instanceof EntityCow) {
-            return EntityCow.getEntity(entity, server);
-        } else if (entity instanceof EntityMushroomCow) {
-            return EntityMushroomCow.getEntity(entity, server);
-        } else if (entity instanceof EntityPig) {
-            return EntityPig.getEntity(entity, server);
-        } else if (entity instanceof EntityWolf) {
-            return EntityWolf.getEntity(entity, server);
-        } else if (entity instanceof EntityOcelot) {
-            return EntityOcelot.getEntity(entity, server);
-        } else if (entity instanceof EntitySheep) {
-            return EntitySheep.getEntity(entity, server);
-        } else { //Given entity must be a horse
-            return EntityHorse.getEntity(entity, server);
-        }
+    public CraftEntity getEntity(CraftServer server) {
+        return this.getEntity(server);
     }
     
     public static boolean isEntityAnimal(Entity entity) {
