@@ -49,24 +49,16 @@ public abstract class CraftEntity implements org.bukkit.entity.Entity {
                 }
                 // Monsters
                 else if (entity instanceof EntityMonster) {
-                    if (entity instanceof EntityZombie) {
-                        if (entity instanceof EntityPigZombie) { return new CraftPigZombie(server, (EntityPigZombie) entity); }
-                        else { return new CraftZombie(server, (EntityZombie) entity); }
+                    boolean isMonster = net.minecraft.server.EntityMonster.isMonster(entity);
+                    if (entity instanceof EntityPigZombie) {
+                        return new CraftZombie(server, (EntityZombie) entity);
+                    } else if (entity instanceof EntityCaveSpider) {
+                        return new CraftZombie(server, (EntityZombie) entity);
+                    } else if (isMonster) {
+                        return entity.getEntity(server);
+                    } else {
+                        return new CraftMonster(server, (EntityMonster) entity);
                     }
-                    else if (entity instanceof EntityCreeper) { return new CraftCreeper(server, (EntityCreeper) entity); }
-                    else if (entity instanceof EntityEnderman) { return new CraftEnderman(server, (EntityEnderman) entity); }
-                    else if (entity instanceof EntitySilverfish) { return new CraftSilverfish(server, (EntitySilverfish) entity); }
-                    else if (entity instanceof EntityGiantZombie) { return new CraftGiant(server, (EntityGiantZombie) entity); }
-                    else if (entity instanceof EntitySkeleton) { return new CraftSkeleton(server, (EntitySkeleton) entity); }
-                    else if (entity instanceof EntityBlaze) { return new CraftBlaze(server, (EntityBlaze) entity); }
-                    else if (entity instanceof EntityWitch) { return new CraftWitch(server, (EntityWitch) entity); }
-                    else if (entity instanceof EntityWither) { return new CraftWither(server, (EntityWither) entity); }
-                    else if (entity instanceof EntitySpider) {
-                        if (entity instanceof EntityCaveSpider) { return new CraftCaveSpider(server, (EntityCaveSpider) entity); }
-                        else { return new CraftSpider(server, (EntitySpider) entity); }
-                    }
-
-                    else  { return new CraftMonster(server, (EntityMonster) entity); }
                 }
                 // Water Animals
                 else if (entity instanceof EntityWaterAnimal) {

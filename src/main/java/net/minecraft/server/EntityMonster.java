@@ -3,6 +3,32 @@ package net.minecraft.server;
 import org.bukkit.event.entity.EntityTargetEvent; // CraftBukkit
 
 public abstract class EntityMonster extends EntityCreature implements IMonster {
+    
+    public static boolean isMonster(Entity entity) {
+        if (entity instanceof EntityZombie) {
+            return true;
+        } else if (entity instanceof EntityPigZombie) {
+            return true;
+        } else if (entity instanceof EntityCreeper) {
+            return true;
+        } else if (entity instanceof EntityEnderman) {
+            return true;
+        } else if (entity instanceof EntitySilverfish) {
+            return true;
+        } else if (entity instanceof EntitySkeleton) {
+            return true;
+        } else if (entity instanceof EntityBlaze) {
+            return true;
+        } else if (entity instanceof EntityWitch) {
+            return true;
+        }else if (entity instanceof EntityWither) {
+            return true;
+        } else if (entity instanceof EntitySpider) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public EntityMonster(World world) {
         super(world);

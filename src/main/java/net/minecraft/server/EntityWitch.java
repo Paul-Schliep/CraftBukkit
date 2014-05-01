@@ -4,6 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftWitch;
+
 public class EntityWitch extends EntityMonster implements IRangedEntity {
 
     private static final UUID bp = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
@@ -22,6 +26,10 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 0, true));
     }
 
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftWitch(server, (EntityWitch) this);
+    }
+    
     protected void c() {
         super.c();
         this.getDataWatcher().a(21, Byte.valueOf((byte) 0));

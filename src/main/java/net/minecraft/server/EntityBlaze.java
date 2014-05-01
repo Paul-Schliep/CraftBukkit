@@ -1,5 +1,9 @@
 package net.minecraft.server;
 
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftBlaze;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+
 public class EntityBlaze extends EntityMonster {
 
     private float bp = 0.5F;
@@ -12,6 +16,10 @@ public class EntityBlaze extends EntityMonster {
         this.b = 10;
     }
 
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftBlaze(server, (EntityBlaze) this);
+    }
+    
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.e).setValue(6.0D);

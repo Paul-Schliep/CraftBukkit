@@ -2,6 +2,9 @@ package net.minecraft.server;
 
 import java.util.Calendar;
 
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftSkeleton;
 import org.bukkit.event.entity.EntityCombustEvent; // CraftBukkit
 
 public class EntitySkeleton extends EntityMonster implements IRangedEntity {
@@ -22,6 +25,10 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
         if (world != null && !world.isStatic) {
             this.bZ();
         }
+    }
+    
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftSkeleton(server, (EntitySkeleton) this);
     }
 
     protected void aC() {

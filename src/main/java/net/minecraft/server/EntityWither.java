@@ -3,6 +3,9 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftWither;
 // CraftBukkit start
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
@@ -33,6 +36,10 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
         this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false));
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityInsentient.class, 0, false, false, bw));
         this.b = 50;
+    }
+    
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftWither(server, (EntityWither) this);
     }
 
     protected void c() {

@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftZombie;
 //CraftBukkit start
 import org.bukkit.craftbukkit.entity.CraftLivingEntity;
 import org.bukkit.event.entity.EntityCombustByEntityEvent;
@@ -38,6 +41,10 @@ public class EntityZombie extends EntityMonster {
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 0, true));
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityVillager.class, 0, false));
         this.a(0.6F, 1.8F);
+    }
+    
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftZombie(server, (EntityZombie) this);
     }
 
     protected void aC() {

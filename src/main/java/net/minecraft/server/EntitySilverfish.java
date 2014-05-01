@@ -2,6 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.util.org.apache.commons.lang3.tuple.ImmutablePair;
 
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftSilverfish;
 import org.bukkit.craftbukkit.event.CraftEventFactory; // CraftBukkit
 
 public class EntitySilverfish extends EntityMonster {
@@ -18,6 +21,10 @@ public class EntitySilverfish extends EntityMonster {
         this.getAttributeInstance(GenericAttributes.a).setValue(8.0D);
         this.getAttributeInstance(GenericAttributes.d).setValue(0.6000000238418579D);
         this.getAttributeInstance(GenericAttributes.e).setValue(1.0D);
+    }
+    
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftSilverfish(server, (EntitySilverfish) this);
     }
 
     protected boolean g_() {

@@ -1,6 +1,9 @@
 package net.minecraft.server;
 
 // CraftBukkit start
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftCreeper;
+import org.bukkit.craftbukkit.entity.CraftEntity;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
 // CraftBukkit end
@@ -26,6 +29,10 @@ public class EntityCreeper extends EntityMonster {
         this.targetSelector.a(2, new PathfinderGoalHurtByTarget(this, false));
     }
 
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftCreeper(server, (EntityCreeper) this);
+    }
+    
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.d).setValue(0.25D);

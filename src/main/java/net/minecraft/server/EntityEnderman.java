@@ -4,6 +4,9 @@ import java.util.UUID;
 
 // CraftBukkit start
 import org.bukkit.Location;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEnderman;
+import org.bukkit.craftbukkit.entity.CraftEntity;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.EntityTeleportEvent;
 // CraftBukkit end
@@ -22,6 +25,10 @@ public class EntityEnderman extends EntityMonster {
         super(world);
         this.a(0.6F, 2.9F);
         this.W = 1.0F;
+    }
+    
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftEnderman(server, (EntityEnderman) this);
     }
 
     protected void aC() {

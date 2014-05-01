@@ -1,6 +1,9 @@
 package net.minecraft.server;
 
 // CraftBukkit start
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftSpider;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.event.entity.EntityTargetEvent;
 // CraftBukkti end
@@ -12,6 +15,10 @@ public class EntitySpider extends EntityMonster {
         this.a(1.4F, 0.9F);
     }
 
+    public CraftEntity getEntity(CraftServer server) {
+        return new CraftSpider(server, (EntitySpider) this);
+    }
+    
     protected void c() {
         super.c();
         this.datawatcher.a(16, new Byte((byte) 0));
